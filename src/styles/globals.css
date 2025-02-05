@@ -3,5 +3,26 @@
 @tailwind utilities;
 
 body {
-    @apply bg-black text-white;
+    @apply text-black;
+    position: relative;
+    min-height: 100vh; /* Ensure the body takes the full height of the viewport */
+    overflow: auto; /* Allow scrolling */
 }
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://99mvyxc675.ufs.sh/f/3T9DhQRBd4jx4fF6oT3PgaFfZAP9XHvzObdKWNGnos6YELct');
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    z-index: -1; /* Ensure the blurred background stays behind the content */
+}
+
+
+
+

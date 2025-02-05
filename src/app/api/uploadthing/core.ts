@@ -11,14 +11,13 @@ const f = createUploadthing();
 // FileRouter for your app, can contain multiple FileRoutes
 export const ourFileRouter = {
   // Define as many FileRoutes as you like, each with a unique routeSlug
-  imageUploader: f({
-    image: {
+  videoUploader: f({
+    video: {
       /**
        * For full list of options and defaults, see the File Route API reference
        * @see https://docs.uploadthing.com/file-routes#route-config
        */
-      maxFileSize: "4MB",
-      maxFileCount: 3,
+      maxFileSize: "4GB",  // Adjust the max size for video
     },
   })
     // Set permissions and file types for this FileRoute
