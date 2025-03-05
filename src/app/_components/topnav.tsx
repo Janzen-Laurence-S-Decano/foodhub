@@ -8,25 +8,30 @@ export default function TopNav() {
     const router = useRouter();
 
     return (
-      <nav className="flex w-full items-center justify-between border-b p-4 text-xl font-semibold">
-     <div className="text-4xl font-bold text-center text-black bg-yellow-300 p-6 rounded-lg shadow-lg">
+      <nav className="flex w-full items-center justify-between p-4">
+        {/* Logo in the center */}
+        <div className="text-3xl font-medium text-black">
   FoodHub
 </div>
 
 
-        <div className="flex flex-row">
-            <SignedOut>
-                <SignInButton />
-            </SignedOut>
-            <SignedIn>
-             < UploadButton endpoint="videoUploader" 
-             onClientUploadComplete={(res) => {
-              router.refresh();
-             }} />
-                <UserButton />
-            </SignedIn>
+    
+        {/* Authentication and Upload Buttons */}
+        <div className="flex flex-row space-x-4">
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UploadButton
+              endpoint="videoUploader"
+              onClientUploadComplete={(res) => {
+                router.refresh();
+              }}
+            />
+            <UserButton />
+          </SignedIn>
         </div>
-
       </nav>
     );
+    
 }
