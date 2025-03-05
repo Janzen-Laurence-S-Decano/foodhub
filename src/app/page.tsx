@@ -2,6 +2,7 @@ import { db } from "~/server/db";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
+import { getMyVideos } from "~/server/queries";
 
 export const dynamic = "force-dynamic";
 
@@ -30,15 +31,7 @@ async function Cards() {
 }
 
 async function Videos() {
-  const user = await auth();
-  console.log("User ID:", user.userId); // Log the userId
-  if (!user.userId) throw new Error("Unauthorized");
-
-  // Fetch videos specific to the logged-in user
-  const videos = await db.query.images.findMany({
-    where: (model) => eq(model.userId, String(user.userId)),
-    orderBy: (model, { desc }) => desc(model.id),
-  });
+  
 
   // Define an array of texts to display in each grid
   const gridTexts = [
@@ -50,6 +43,8 @@ async function Videos() {
     "Let food be thy medicine and medicine be thy food.",
 
   ];
+
+  const videos = await getMyVideos();
 
   return (
     <div className="flex justify-center items-center min-h-screen">
