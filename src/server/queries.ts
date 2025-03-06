@@ -13,5 +13,5 @@ export async function getMyVideos() {
     orderBy: (model, { desc }) => desc(model.id),
   });
 
-  return videos;
+  return videos
 }

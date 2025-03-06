@@ -49,7 +49,7 @@ async function Videos() {
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {videos.slice(0, 10).map((video, index) => (  // Limit to 3 videos
+        {videos.slice(0, 10).map((video, index) => (  
           <div key={video.id} className="p-6 w-full h-96 bg-white border rounded-md shadow-lg hover:shadow-xl transition-shadow">
             <div className="flex flex-col items-center space-y-4">
               {/* Video player */}

@@ -43,6 +43,7 @@ const config = withSentryConfig(coreConfig, {
   // side errors will fail.
   tunnelRoute: "/monitoring",
 
+
   // @ts-ignore
   hideSourceMaps: true,
 
